@@ -1,0 +1,21 @@
+import UIKit
+@IBDesignable
+class ButtonLine: UIButton {
+    override func draw(_ rect: CGRect) {
+       // let path = UIBezierPath(ovalIn: rect)
+        let path = UIBezierPath()
+        let w = 0.0
+        let bw = CGFloat(w)
+        let bbw = bounds.width - 2*bw
+        let bbh = bounds.height - 2*bw
+        path.lineWidth = 1.0
+        path.move(to: CGPoint(x:bw,y:bw))
+        path.addLine(to: CGPoint(x:bbw+bw,y:bw))
+        path.addLine(to: CGPoint(x:bbw+bw,y:bbh+bw))
+        path.addLine(to: CGPoint(x:bw,y:bbh+bw))
+        path.addLine(to: CGPoint(x:bw,y:bw))
+      
+        UIColor.red.setStroke()
+        path.stroke()
+    }
+}
